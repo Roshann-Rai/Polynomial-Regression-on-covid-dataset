@@ -418,7 +418,7 @@ p6 <- covid %>%
     y = "Total cases in thousands"
   )
    
-ggplotly(p6, tooltip = c("text", "total_cases", "human_development_index")) %>%
+ggplotly(p6, tooltip = "all") %>%
   layout(title = list(text = paste0('Total Covid cases in different countries',
                                     '<br>',
                                     '<sup>',
@@ -445,7 +445,7 @@ p7 <- covid %>%
     y = "Total deaths in thousands"
   )
  
-ggplotly(p7, tooltip = c("text", "total_deaths", "human_development_index")) %>%
+ggplotly(p7, tooltip = "all") %>%
   layout(title = list(text = paste0('Total Covid deaths in different countries',
                                     '<br>',
                                     '<sup>',
@@ -637,3 +637,10 @@ residplot(model)
 ```{r, warning=FALSE, fig.dim=c(5,5), class.source="bg-danger", class.output="bg-success", message=FALSE}
 effect_plot(model, pred = new_tests, interval = T, plot.points = T, line.colors = "#4669E8")
 ```
+
+# **5. Conclusion**
+
+* Till now, USA has the highest number of COVID infections (102 million) followed by India (44 million) and France (40 million).
+* Similarly, USA has the highest number of COVID deaths (1 million) followed by Brazil (700 thousands) and India (520 thousands).
+* Most of the countries observed more COVID infections in winter than summer.
+* The number of COVID infections and deaths are higher in countries with higher HDI score.
