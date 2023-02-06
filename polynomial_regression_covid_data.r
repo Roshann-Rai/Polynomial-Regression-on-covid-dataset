@@ -509,7 +509,6 @@ residplot <- function(fit, nbreaks=15) {
 }
 
 residplot(model)
-# pg 200
 
 effect_plot(model, pred = new_tests, interval = T, plot.points = T, line.colors = "#4669E8")
 #https://cran.r-project.org/web/packages/jtools/vignettes/effect_plot.html
