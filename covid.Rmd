@@ -354,7 +354,7 @@ ggplotly(p3)
 
 ## **3.7 Countries with most COVID cases and deaths** {.tabset}
 ### **3.7.1 Top Ten countries with most COVID infections**
-```{r, warning=FALSE, fig.dim=c(10,5), class.source="bg-danger", class.output="bg-success", message=FALSE}
+```{r, warning=FALSE, fig.dim=c(12,5), class.source="bg-danger", class.output="bg-success", message=FALSE}
 top.10.covid.countries <- covid %>%
   select(location, new_cases, date) %>%
   group_by(location) %>%
@@ -380,7 +380,7 @@ p4
 ```
 
 ### **3.7.2 Top Ten countries with most COVID deaths**
-```{r, warning=FALSE, fig.dim=c(10,5), class.source="bg-danger", class.output="bg-success", message=FALSE}
+```{r, warning=FALSE, fig.dim=c(12,5), class.source="bg-danger", class.output="bg-success", message=FALSE}
 top.10.covid.deaths.countries <- covid %>%
   select(date, location, new_deaths) %>%
   group_by(location) %>%
@@ -490,15 +490,15 @@ covid.data.corr <- covid %>%
 #Plotting the correlation matrix
 cor <- cor(covid.data.corr)
 col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
-corrplot(cor, method = 'color', 
+corrplot(cor, method = 'color', #visualization method of correlation matrix
          type = "upper", #Displays only upper part of the matrix
-         order = "hclust",
-         col=col(200),
+         order = "hclust",  #orders variables in hierarchical order
+         col=col(200),  #controls the color palette
          addCoef.col = "black",  #Add coeffiecient of correlation
-         number.cex = 0.8,
+         number.cex = 0.8, #text size
          tl.col="black",  #Text label color
          tl.srt=90,  #Text label rotation
-         diag = FALSE,
+         diag = FALSE,  #diagnol elements
          sig.level = 0.01, insig = "blank")
 ```
 
@@ -635,7 +635,7 @@ residplot(model)
 ```
 
 ```{r, warning=FALSE, fig.dim=c(5,5), class.source="bg-danger", class.output="bg-success", message=FALSE}
-effect_plot(model, pred = new_tests, interval = T, plot.points = T, line.colors = "#4669E8")
+effect_plot(model, pred = new_tests, plot.points = T, line.colors = "#4669E8")
 ```
 
 # **5. Conclusion**
